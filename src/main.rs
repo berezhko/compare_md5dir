@@ -29,6 +29,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
+    // Проверяем удаленные файлы
+    for (rel_path, _) in files1 {
+        if !files2.contains_key(&rel_path) {
+            println!("Удален: {}", rel_path.display());
+        }
+    }
+
     Ok(())
 }
 
@@ -57,10 +64,6 @@ fn collect_files(root: &Path) -> io::Result<HashMap<PathBuf, PathBuf>> {
 
 /// Сравнивает содержимое двух файлов фиксированного размера
 fn files_equal(path1: &Path, path2: &Path) -> io::Result<bool> {
-    // Читаем всё содержимое файлов
-    let content1 = fs::read(path1)?;
-    let content2 = fs::read(path2)?;
-    
     // Сравниваем содержимое
-    Ok(content1 == content2)
+    Ok(fs::read(path1)? == fs::read(path2)?)
 }
