@@ -22,8 +22,8 @@ A high-performance Rust utility for comparing fixed-size (32-byte) files between
 - Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/directory-comparator.git
-cd directory-comparator
+git clone https://github.com/berezhko/compare_md5dir.git
+cd compare_md5dir
 ```
 
 - Build the release version:
@@ -32,16 +32,16 @@ cd directory-comparator
 cargo build --release
 ```
 
-The binary will be located at ./target/release/directory-comparator
+The binary will be located at ./target/release/compare_md5dir
 
 ## Usage
 ```bash
-directory-comparator <md5 directory1> <md5 directory2>
+compare_md5dir <md5 directory1> <md5 directory2>
 ```
 
 ### Example:
 ```bash
-directory-comparator ./backup ./current
+compare_md5dir ./backup ./current
 ```
 
 ### Output Format:
